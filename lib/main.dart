@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-
-import 'View/home_sreen.dart';
+import 'package:currency_converter/colors.dart'as colors;
+import 'View/home_screen2.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,11 +17,11 @@ class MyApp extends StatelessWidget {
       return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-            canvasColor: Colors.white,
+            canvasColor: colors.backgroundColor,
             appBarTheme: const AppBarTheme(
-              color: Colors.white,
+              color: colors.backgroundColor,
             )),
-        home:  HomeScreen(),
+        home:  HomeScreen2(),
       );
     });
   }
