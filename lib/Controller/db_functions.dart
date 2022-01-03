@@ -5,11 +5,14 @@ import 'package:get/get.dart';
 import '../instance.dart';
 
 class DataBaseController extends GetxController {
-  ConversionHandler? conversionHandler;
-
+  InsertData? insertData;
+  DeleteData? deleteData;
+  ClearDataBase? clearDataBase;
   @override
   void onInit() {
-    conversionHandler = ConversionHandler();
+    insertData = InsertData();
+    deleteData=DeleteData();
+    clearDataBase=ClearDataBase();
     // TODO: implement onInit
     super.onInit();
   }
@@ -20,18 +23,18 @@ class DataBaseController extends GetxController {
     final ConversionModel conversionModel =
         ConversionModel(dateTime: dateTime, historyValue: historyValue);
     final List<ConversionModel> listOfHistory = [conversionModel];
-    return await conversionHandler?.insertCurrencyData(listOfHistory);
+    return await insertData?.insertCurrencyData(listOfHistory);
   }
 
   //ClearAllData
   void clearAllData() async {
-    await dataBaseController.conversionHandler?.deleteAll();
+    await dataBaseController.clearDataBase?.deleteAll();
     update();
   }
 
 //DeleteData
-  void deleteData(int id)async{
-    await  conversionHandler?.deleteStudent(id);
+  void deleteHistoryData(int id)async{
+    await  deleteData?.deleteData(id);
     update();
   }
 }

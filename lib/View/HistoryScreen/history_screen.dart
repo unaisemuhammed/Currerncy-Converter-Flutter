@@ -14,11 +14,11 @@ class ConversionHistoryScreen extends StatefulWidget {
 }
 
 class _ConversionHistoryScreenState extends State<ConversionHistoryScreen> {
-  ConversionHandler? conversionHandler;
+  RetrieveData? retrieveData;
 
   @override
   void initState() {
-    conversionHandler = ConversionHandler();
+    retrieveData =RetrieveData();
     // TODO: implement initState
     super.initState();
   }
@@ -57,7 +57,7 @@ class _ConversionHistoryScreenState extends State<ConversionHistoryScreen> {
 
         //ListOfHistory
         child: FutureBuilder(
-          future: conversionHandler?.retrieveCurrencyData(),
+          future: retrieveData?.retrieveCurrencyData(),
           builder: (BuildContext context,
               AsyncSnapshot<List<ConversionModel>> snapshot) {
             if (snapshot.hasData) {
@@ -100,7 +100,7 @@ class _ConversionHistoryScreenState extends State<ConversionHistoryScreen> {
                           trailing: TextButton(
                             onPressed: () {
                               dataBaseController
-                                  .deleteData(snapshot.data![index].id!);
+                                  .deleteHistoryData(snapshot.data![index].id!);
                               setState(() {});
                             },
                             child: const Text(
