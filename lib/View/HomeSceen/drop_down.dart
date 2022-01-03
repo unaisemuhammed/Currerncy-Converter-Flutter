@@ -53,8 +53,8 @@ class DropDownContainer extends StatelessWidget {
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 20),
           child: Image.asset(
-            'assets/icons/image.png',
-            scale: 10,
+            'assets/icons/arrow Icons.png',
+            scale: 12,
             color: Colors.blue,
           ),
         ),

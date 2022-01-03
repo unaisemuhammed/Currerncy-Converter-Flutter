@@ -7,7 +7,7 @@ import 'instance.dart';
 
 void main() async{
  await getCurrencies.getAllCurrencies();
-  runApp(const MyApp());
+ runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {

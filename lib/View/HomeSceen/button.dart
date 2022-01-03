@@ -13,6 +13,7 @@ class ButtonContainer extends StatefulWidget {
 }
 
 class _ButtonContainerState extends State<ButtonContainer> {
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -21,6 +22,7 @@ class _ButtonContainerState extends State<ButtonContainer> {
           onTap: () async {
             //validating amount field
             amountController.customTextFieldValidation();
+            amountController.exchangeCurrency();
             FocusScope.of(context).unfocus();
             setState(() {});
           },
