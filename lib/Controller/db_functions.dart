@@ -10,9 +10,10 @@ class DataBaseController extends GetxController {
     final ConversionModel conversionModel =
         ConversionModel(dateTime: dateTime, historyValue: historyValue);
     final List<ConversionModel> listOfHistory = [conversionModel];
-    print("kissoff${historyValue},${dateTime}");
     return await conversionHandler?.insertCurrencyData(listOfHistory);
   }
+
+
   @override
   void onInit() {
     conversionHandler =ConversionHandler();
