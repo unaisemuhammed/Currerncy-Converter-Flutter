@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:currency_converter/colors.dart' as colors;
-import 'View/home_screen.dart';
+import 'View/HomeSceen/home_screen.dart';
 import 'instance.dart';
 
 void main() async{

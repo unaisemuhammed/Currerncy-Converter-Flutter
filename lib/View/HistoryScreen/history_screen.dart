@@ -1,5 +1,6 @@
 import 'package:currency_converter/Model/conversion_handler.dart';
 import 'package:currency_converter/Model/conversion_history_model.dart';
+import 'package:currency_converter/instance.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -42,8 +43,8 @@ class _ConversionHistoryScreenState extends State<ConversionHistoryScreen> {
         ),
         actions: [
           TextButton(
-              onPressed: () async {
-                await conversionHandler?.deleteAll();
+              onPressed: ()  {
+                dataBaseController.clearAllData();
                 setState(() {});
               },
               child: Text('Clear',
@@ -53,6 +54,8 @@ class _ConversionHistoryScreenState extends State<ConversionHistoryScreen> {
       ),
       body: Padding(
         padding: EdgeInsets.only(top: 18.sp),
+
+        //ListOfHistory
         child: FutureBuilder(
           future: conversionHandler?.retrieveCurrencyData(),
           builder: (BuildContext context,
@@ -95,9 +98,9 @@ class _ConversionHistoryScreenState extends State<ConversionHistoryScreen> {
                                 fontSize: 10.sp),
                           ),
                           trailing: TextButton(
-                            onPressed: () async {
-                              await conversionHandler!
-                                  .deleteStudent(snapshot.data![index].id!);
+                            onPressed: () {
+                              dataBaseController
+                                  .deleteData(snapshot.data![index].id!);
                               setState(() {});
                             },
                             child: const Text(

@@ -9,7 +9,7 @@ class DataBaseController extends GetxController {
 
   @override
   void onInit() {
-    conversionHandler =ConversionHandler();
+    conversionHandler = ConversionHandler();
     // TODO: implement onInit
     super.onInit();
   }
@@ -24,10 +24,14 @@ class DataBaseController extends GetxController {
   }
 
   //ClearAllData
+  void clearAllData() async {
+    await dataBaseController.conversionHandler?.deleteAll();
+    update();
+  }
 
-void clearAllData()async{
-  await dataBaseController.conversionHandler?.deleteAll();
-  update();
-}
-
+//DeleteData
+  void deleteData(int id)async{
+    await  conversionHandler?.deleteStudent(id);
+    update();
+  }
 }
