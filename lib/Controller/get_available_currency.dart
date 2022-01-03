@@ -6,16 +6,11 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 import '../instance.dart';
-import 'exeption_class.dart';
+import 'exception_handler.dart';
 
-TextEditingController amount = TextEditingController();
-String date = '';
-String targetCurrencyValue = '';
-String totalValue = '';
-List<String> Keys = [];
-
-//FetchingCurrenciesMethod
 class GetCurrency extends GetxController {
+  List<String> currenciesList = [];
+
   //Get All Currencies Method
   Future<List<String>> getAllCurrencies() async {
     final response = await http.get(Uri.parse(api.getCurrencies));
@@ -25,9 +20,9 @@ class GetCurrency extends GetxController {
             jsonDecode(response.body.toString().toUpperCase()) as Map;
         final data = decoded;
         for (final name in data.keys) {
-          Keys.add(name.toString());
+          currenciesList.add(name.toString());
         }
-        return Keys;
+        return currenciesList;
       case 400:
         throw BadRequestException(response.body.toString());
       case 401:

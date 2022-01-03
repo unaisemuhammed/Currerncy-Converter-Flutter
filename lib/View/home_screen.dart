@@ -1,7 +1,5 @@
 import 'dart:convert';
-import 'package:currency_converter/Controller/currency_fetching.dart';
 import 'package:currency_converter/colors.dart' as colors;
-import 'package:currency_converter/Controller/drop_down_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -17,13 +15,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  @override
-  void initState() {
-    setState(() {
-      fetchingCurrencies.fetchingCurrencies();
-    });
-    super.initState();
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           onTap: () async {
                             //functionCalling
                             var result =
-                                await fetchingCurrencies.exchangeCurrencies(
+                                await exchangeRateCurrency.exchangeRateCurrencies(
                                     dropDownController.value.toString(),
                                     dropDownController.value2.toString());
 
@@ -96,17 +88,17 @@ class _HomeScreenState extends State<HomeScreen> {
                             var conversionData = jsonDecode(result);
 
                             //gettingTargetCurrencyValue
-                            targetCurrencyValue = conversionData[
+                            totalController.targetCurrencyValue = conversionData[
                                     dropDownController.value2?.toLowerCase()]
                                 .toString();
 
                             //gettingTotalValue
-                            totalValue = (double.parse(
-                                        amount.text == '' ? '1' : amount.text) *
-                                    double.parse(targetCurrencyValue))
+                            totalController.totalValue = (double.parse(
+                                totalController. amount.text == '' ? '1' : totalController.amount.text) *
+                                    double.parse(totalController.targetCurrencyValue))
                                 .toString();
                             String history =
-                                "${amount.text.toString()}   ${dropDownController.value}    =    ${totalValue.toString()}   ${dropDownController.value2!}";
+                                "${totalController.amount.text.toString()}   ${dropDownController.value}    =    ${totalController.totalValue.toString()}   ${dropDownController.value2!}";
 
                             //AddToDatabase
                             dataBaseController.addCurrencyHistories(

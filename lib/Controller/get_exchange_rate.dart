@@ -3,7 +3,7 @@ import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import '../instance.dart';
 import 'package:http/http.dart' as http;
 
-import 'exeption_class.dart';
+import 'exception_handler.dart';
 
 class GetExchangeRateCurrency extends GetxController {
 

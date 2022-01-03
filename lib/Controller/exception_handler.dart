@@ -16,7 +16,7 @@ class FetchDataException extends CustomException {
 }
 
 class BadRequestException extends CustomException {
-  BadRequestException([String? message]) : super(message, "Invalid Request: ");
+  BadRequestException([String? message]) : super(message, "Bad Request: ");
 }
 
 class UnauthorisedException extends CustomException {

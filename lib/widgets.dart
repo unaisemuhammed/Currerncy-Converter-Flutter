@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
 import 'package:sizer/sizer.dart';
-import 'Controller/currency_fetching.dart';
+import 'Controller/get_available_currency.dart';
 import 'colors.dart'as colors;
 import 'Controller/drop_down_controller.dart';
 import 'instance.dart';
@@ -24,7 +24,7 @@ Widget amountTextField() => Container(
           ]),
       child: TextField(
         keyboardType: TextInputType.number,
-        controller: amount,
+        controller: totalController.amount,
         decoration: const InputDecoration(
           border: InputBorder.none,
           hintText: "Amount",
@@ -60,7 +60,7 @@ Widget dropDownWidget() =>Container(
           child: DropdownButton<String>(
             isExpanded: true,
             value: dropDownController.value,
-            items: Keys.map(dropDownController.buildMenuItem)
+            items:getCurrencies. currenciesList.map(dropDownController.buildMenuItem)
                 .toList(),
             onChanged: (value) {
               dropDownController.value = value;
@@ -96,7 +96,7 @@ Widget dropDownTwoWidget() =>  Container(
           child: DropdownButton<String>(
             isExpanded: true,
             value: dropDownController.value2,
-            items: Keys.map(dropDownController.buildMenuItem)
+            items: getCurrencies.currenciesList.map(dropDownController.buildMenuItem)
                 .toList(),
             onChanged: (value) {
               dropDownController.value2 = value;
@@ -183,7 +183,7 @@ Widget resultWidget() =>  Container(
           ),
           Expanded(
             child: Text(
-              '${targetCurrencyValue} ${dropDownController.value2}',
+              '${totalController.targetCurrencyValue} ${dropDownController.value2}',
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 14.sp,
@@ -195,7 +195,7 @@ Widget resultWidget() =>  Container(
       Row(
         children: [
           Text(
-            '${amount.text == '' ? '1' : amount.text} ${dropDownController.value.toString().toUpperCase()}',
+            '${totalController.amount.text == '' ? '1' : totalController.amount.text} ${dropDownController.value.toString().toUpperCase()}',
             style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 14.sp,
@@ -216,7 +216,7 @@ Widget resultWidget() =>  Container(
           ),
           Expanded(
             child: Text(
-              '${totalValue} ${dropDownController.value2.toString().toUpperCase()}',
+              '${totalController.totalValue} ${dropDownController.value2.toString().toUpperCase()}',
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 14.sp,

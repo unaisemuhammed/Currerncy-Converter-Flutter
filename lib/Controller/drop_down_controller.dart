@@ -6,11 +6,7 @@ class DropDownController extends GetxController {
   String? value = 'ADA';
   String? value2 = 'ADA';
 
-  @override
-  void onInit() {
-    super.onInit();
-  }
-
+//DropDownItemsFunction
   DropdownMenuItem<String> buildMenuItem(String item) => DropdownMenuItem(
         value: item,
         child: Text(

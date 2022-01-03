@@ -3,8 +3,10 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:currency_converter/colors.dart' as colors;
 import 'View/home_screen.dart';
+import 'instance.dart';
 
-void main() {
+void main() async{
+ await getCurrencies.getAllCurrencies();
   runApp(const MyApp());
 }
 
