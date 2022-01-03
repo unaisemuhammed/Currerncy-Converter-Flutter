@@ -13,3 +13,15 @@ SnackbarController snackBar() => Get.snackbar(
         color: Colors.white,
       ),
     );
+
+SnackbarController validationSnackBar() => Get.snackbar(
+  'Something went wrong',
+  'Enter an amount to convert',
+  snackPosition: SnackPosition.BOTTOM,
+  backgroundColor: Colors.black87,
+  colorText: Colors.white,
+  icon: const Icon(
+    CupertinoIcons.xmark_circle,
+    color: Colors.white,
+  ),
+);

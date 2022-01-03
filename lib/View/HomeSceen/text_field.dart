@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:currency_converter/colors.dart'as colors;
+import 'package:currency_converter/colors.dart' as colors;
 
 import '../../instance.dart';
+import '../../widget.dart';
 
 class TextFieldContainer extends StatelessWidget {
   const TextFieldContainer({Key? key}) : super(key: key);
@@ -26,12 +27,12 @@ class TextFieldContainer extends StatelessWidget {
           ]),
       child: TextField(
         keyboardType: TextInputType.number,
-        controller: totalController.amount,
+        controller: amountController.amount,
         decoration: const InputDecoration(
           border: InputBorder.none,
           hintText: "Amount",
           contentPadding:
-          EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+              EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
         ),
       ),
     );

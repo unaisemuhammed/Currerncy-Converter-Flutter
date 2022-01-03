@@ -20,6 +20,8 @@ class _ButtonContainerState extends State<ButtonContainer> {
       children: [
         GestureDetector(
           onTap: () async {
+            amountController.customTextFieldValidation();
+            FocusScope.of(context).unfocus();
             //functionCalling
             var result = await exchangeRateCurrency.exchangeRateCurrencies(
                 dropDownController.value.toString(),
@@ -35,19 +37,20 @@ class _ButtonContainerState extends State<ButtonContainer> {
 
             //gettingTotalValue
             totalController.totalValue = (double.parse(
-                totalController.amount.text == ''
+                amountController.amount.text == ''
                     ? '1'
-                    : totalController.amount.text) *
+                    : amountController.amount.text) *
                 double.parse(totalController.targetCurrencyValue))
                 .toString();
             String history =
-                "${totalController.amount.text.toString()==''?'1':totalController.amount.text.toString()}   ${dropDownController.value}    =    ${totalController.totalValue.toString()}   ${dropDownController.value2!}";
+                "${amountController.amount.text.toString()==''?'1':amountController.amount.text.toString()}   ${dropDownController.value}    =    ${totalController.totalValue.toString()}   ${dropDownController.value2!}";
 
 
             //AddToDatabase
             dataBaseController.addCurrencyHistories(
                 historyValue: history,
                 dateTime: conversionData['date'].toString());
+
             setState(() {});
           },
           child: Container(
@@ -140,7 +143,7 @@ class _ButtonContainerState extends State<ButtonContainer> {
               Row(
                 children: [
                   Text(
-                    '${totalController.amount.text == '' ? '1' : totalController.amount.text} ${dropDownController.value.toString().toUpperCase()}',
+                    '${amountController.amount.text == '' ? '1' : amountController.amount.text} ${dropDownController.value.toString().toUpperCase()}',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 14.sp,
