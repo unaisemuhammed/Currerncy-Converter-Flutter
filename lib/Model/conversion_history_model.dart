@@ -5,22 +5,18 @@ class ConversionModel extends GetxController {
   String historyValue;
   String dateTime;
 
-  ConversionModel({required this.historyValue,
-    required this.dateTime});
+  ConversionModel({required this.historyValue, required this.dateTime});
 
   ConversionModel.fromMap(Map<String, dynamic> conversion)
-      :
-        id =conversion['id'],
-        historyValue=conversion['historyValue'],
-        dateTime=conversion['dateTime'];
-
+      : id = conversion['id'],
+        historyValue = conversion['historyValue'],
+        dateTime = conversion['dateTime'];
 
   Map<String, Object?> toMap() {
     return {
       'id': id,
       'historyValue': historyValue,
       'dateTime': dateTime,
-
     };
   }
 }

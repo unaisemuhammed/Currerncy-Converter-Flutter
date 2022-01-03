@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:currency_converter/colors.dart' as colors;
 
 import '../../instance.dart';
-import '../../widget.dart';
 
 class TextFieldContainer extends StatelessWidget {
   const TextFieldContainer({Key? key}) : super(key: key);

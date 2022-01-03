@@ -8,11 +8,12 @@ class DataBaseController extends GetxController {
   InsertData? insertData;
   DeleteData? deleteData;
   ClearDataBase? clearDataBase;
+
   @override
   void onInit() {
     insertData = InsertData();
-    deleteData=DeleteData();
-    clearDataBase=ClearDataBase();
+    deleteData = DeleteData();
+    clearDataBase = ClearDataBase();
     // TODO: implement onInit
     super.onInit();
   }
@@ -33,8 +34,8 @@ class DataBaseController extends GetxController {
   }
 
 //DeleteData
-  void deleteHistoryData(int id)async{
-    await  deleteData?.deleteData(id);
+  void deleteHistoryData(int id) async {
+    await deleteData?.deleteData(id);
     update();
   }
 }

@@ -18,7 +18,7 @@ class _ConversionHistoryScreenState extends State<ConversionHistoryScreen> {
 
   @override
   void initState() {
-    retrieveData =RetrieveData();
+    retrieveData = RetrieveData();
     // TODO: implement initState
     super.initState();
   }
@@ -43,7 +43,7 @@ class _ConversionHistoryScreenState extends State<ConversionHistoryScreen> {
         ),
         actions: [
           TextButton(
-              onPressed: ()  {
+              onPressed: () {
                 dataBaseController.clearAllData();
                 setState(() {});
               },

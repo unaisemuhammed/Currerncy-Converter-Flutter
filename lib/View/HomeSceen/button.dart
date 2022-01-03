@@ -1,6 +1,5 @@
-
 import 'dart:convert';
-import 'package:currency_converter/colors.dart'as colors;
+import 'package:currency_converter/colors.dart' as colors;
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -20,46 +19,18 @@ class _ButtonContainerState extends State<ButtonContainer> {
       children: [
         GestureDetector(
           onTap: () async {
+            //validating amount field
             amountController.customTextFieldValidation();
             FocusScope.of(context).unfocus();
-            //functionCalling
-            var result = await exchangeRateCurrency.exchangeRateCurrencies(
-                dropDownController.value.toString(),
-                dropDownController.value2.toString());
-
-            //decodingToJson
-            var conversionData = jsonDecode(result!);
-
-            //gettingTargetCurrencyValue
-            totalController.targetCurrencyValue =
-                conversionData[dropDownController.value2?.toLowerCase()]
-                    .toString();
-
-            //gettingTotalValue
-            totalController.totalValue = (double.parse(
-                amountController.amount.text == ''
-                    ? '1'
-                    : amountController.amount.text) *
-                double.parse(totalController.targetCurrencyValue))
-                .toString();
-            String history =
-                "${amountController.amount.text.toString()==''?'1':amountController.amount.text.toString()}   ${dropDownController.value}    =    ${totalController.totalValue.toString()}   ${dropDownController.value2!}";
-
-
-            //AddToDatabase
-            dataBaseController.addCurrencyHistories(
-                historyValue: history,
-                dateTime: conversionData['date'].toString());
-
             setState(() {});
           },
           child: Container(
             padding: const EdgeInsets.all(15.0),
             child: Center(
                 child: Text(
-                  "Convert",
-                  style: TextStyle(color: Colors.white, fontSize: 16.sp),
-                )),
+              "Convert",
+              style: TextStyle(color: Colors.white, fontSize: 16.sp),
+            )),
             decoration: BoxDecoration(
               color: colors.buttonColor,
               borderRadius: BorderRadius.circular(100.0),

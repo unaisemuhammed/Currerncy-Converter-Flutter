@@ -1,9 +1,10 @@
 import 'package:currency_converter/Controller/drop_down_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:currency_converter/colors.dart'as colors;
+import 'package:currency_converter/colors.dart' as colors;
 import 'package:get/get.dart';
 
 import '../../instance.dart';
+
 class DropDownContainer extends StatelessWidget {
   const DropDownContainer({Key? key}) : super(key: key);
 

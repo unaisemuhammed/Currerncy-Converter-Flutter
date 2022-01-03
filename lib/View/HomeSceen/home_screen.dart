@@ -15,13 +15,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: GestureDetector(
-        onTap: ()=>FocusScope.of(context).unfocus(),
+        onTap: () => FocusScope.of(context).unfocus(),
         child: Scaffold(
           backgroundColor: colors.backgroundColor,
           body: SingleChildScrollView(
@@ -31,24 +29,34 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text("MONEY CONVERTER",
-                    style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w900),),
-                  SizedBox(height: 5.h,),
+                  Text(
+                    "MONEY CONVERTER",
+                    style:
+                        TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w900),
+                  ),
+                  SizedBox(
+                    height: 5.h,
+                  ),
                   Text("Enter Amount", style: TextStyle(fontSize: 10.sp)),
-                  SizedBox(height: 3.h,),
-
+                  SizedBox(
+                    height: 3.h,
+                  ),
 
                   //AmountTextField
                   const TextFieldContainer(),
-                  SizedBox(height: 3.h,),
+                  SizedBox(
+                    height: 3.h,
+                  ),
                   Text("Select currency", style: TextStyle(fontSize: 10.sp)),
-                  SizedBox(height: 3.h,),
-
+                  SizedBox(
+                    height: 3.h,
+                  ),
 
                   //DropDownClass
                   const DropDownContainer(),
-                  SizedBox(height: 10.h,),
-
+                  SizedBox(
+                    height: 10.h,
+                  ),
 
                   //ButtonContainer and Result
                   const ButtonContainer(),
