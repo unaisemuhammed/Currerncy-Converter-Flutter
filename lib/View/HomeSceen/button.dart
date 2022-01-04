@@ -13,7 +13,7 @@ class ButtonContainer extends StatefulWidget {
 }
 
 class _ButtonContainerState extends State<ButtonContainer> {
-
+@override
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -29,7 +29,7 @@ class _ButtonContainerState extends State<ButtonContainer> {
                 dropDownController.value2.toString());
 
             //decodingToJson
-            var conversionData = jsonDecode(result!);
+            var conversionData = jsonDecode(result);
 
             //gettingTargetCurrencyValue
             totalController.targetCurrencyValue =

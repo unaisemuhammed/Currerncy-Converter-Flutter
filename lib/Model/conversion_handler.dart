@@ -3,7 +3,7 @@ import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'conversion_history_model.dart';
 
-class ConversionHandler extends GetxController {
+class ConversionDatabaseHandler extends GetxController {
   //InitializingAndCreatingTable
   Future<Database> initializeDB() async {
     final String dbPath = await getDatabasesPath();
@@ -18,7 +18,7 @@ class ConversionHandler extends GetxController {
   }
 }
 
-class InsertData extends ConversionHandler {
+class InsertData extends ConversionDatabaseHandler {
   //InsertData
   Future<int> insertCurrencyData(List<ConversionModel> currencies) async {
     int result = 0;
@@ -30,7 +30,7 @@ class InsertData extends ConversionHandler {
   }
 }
 
-class RetrieveData extends ConversionHandler {
+class RetrieveData extends ConversionDatabaseHandler {
 //RetrieveData
   Future<List<ConversionModel>> retrieveCurrencyData() async {
     final Database db = await initializeDB();
@@ -44,7 +44,7 @@ class RetrieveData extends ConversionHandler {
   }
 }
 
-class DeleteData extends ConversionHandler {
+class DeleteData extends ConversionDatabaseHandler {
   //DeleteData
   Future<void> deleteData(int id) async {
     final db = await initializeDB();
@@ -52,7 +52,7 @@ class DeleteData extends ConversionHandler {
   }
 }
 
-class ClearDataBase extends ConversionHandler {
+class ClearDataBase extends ConversionDatabaseHandler {
   //Clear Database
   deleteAll() async {
     Database db = await initializeDB();
